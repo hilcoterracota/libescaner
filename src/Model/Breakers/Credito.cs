@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using libescaner.Model.Core;
 using libescaner.Model.Entities;
 
 namespace libescaner.Model.Breakers
 {
+    [Table("BRE_CREDITO")]
     public class Credito : Default
     {
 
