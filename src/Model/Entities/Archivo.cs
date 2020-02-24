@@ -14,7 +14,7 @@ namespace libescaner.Model.Entities
 
         [MaxLength(10)]
         [Required]
-        public string IdCredito { get; set; }
+        public string IdAcreditado { get; set; }
 
         [MaxLength(150)]
         public string Titulo { get; set; }
