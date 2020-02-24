@@ -1,16 +1,13 @@
-﻿using System;
+﻿using libescaner.Model.Catalog;
+using libescaner.Model.Core;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using libescaner.Model.Catalog;
-using libescaner.Model.Core;
 
 namespace libescaner.Model.Entities
 {
     [Table("T_ARCHIVO")]
     public class Archivo : Default
-
     {
-
 
         [MaxLength(10)]
         [Required]
@@ -33,10 +30,6 @@ namespace libescaner.Model.Entities
         [Required]
         public string Nombre { get; set; }
         public TipoArchivo TipoArchivo { get; set; }
-
         public Acreditado Acreditado { get; set; }
-
-
-
     }
 }
