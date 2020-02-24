@@ -6,11 +6,11 @@ using libescaner.Model.Core;
 
 namespace libescaner.Model.Entities
 {
-[Table("T_ARCHIVO")]
-    public class Archivo:Default
+    [Table("T_ARCHIVO")]
+    public class Archivo : Default
 
     {
-        
+
 
         [MaxLength(10)]
         [Required]
@@ -22,7 +22,9 @@ namespace libescaner.Model.Entities
         [MaxLength(100)]
         public string Descripcion { get; set; }
 
-       public string IdTipoArchivo {get; set;}
+        public string IdTipoArchivo { get; set; }
+
+        public string PathArchivo { get; set; }
 
         [MaxLength(100)]
         public string Tipo { get; set; }
@@ -30,7 +32,9 @@ namespace libescaner.Model.Entities
         [MaxLength(100)]
         [Required]
         public string Nombre { get; set; }
-public TipoArchivo TipoArchivo {get; set;}
+        public TipoArchivo TipoArchivo { get; set; }
+
+        public Acreditado Acreditado { get; set; }
 
 
 
