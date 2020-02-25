@@ -18,12 +18,22 @@ namespace LibEscaner.Core.Controller
 
         public async Task<IEnumerable<Cliente>> GetAllClientes()
         {
-            return await context.Cliente.ToListAsync();
+            return await context.Cliente
+            .Include(x => x.Creditos)
+                .ThenInclude(x => x.Acreditado)
+                    .ThenInclude(x => x.Archivos)
+                        .ThenInclude(x => x.TipoArchivo)
+            .ToListAsync();
         }
 
         public async Task<Cliente> FindClienteById(string value)
         {
-            return await context.Cliente.FirstOrDefaultAsync(i => i.Id == value);
+            return await context.Cliente
+            .Include(x => x.Creditos)
+                .ThenInclude(x => x.Acreditado)
+                    .ThenInclude(x => x.Archivos)
+                        .ThenInclude(x => x.TipoArchivo)
+            .FirstOrDefaultAsync(i => i.Id == value);
         }
 
         public async Task<Cliente> AddCliente(Cliente value)
