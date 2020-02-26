@@ -13,7 +13,7 @@ namespace libescaner.Core
 
         public LibEscanerDbContext(DbContextOptions<LibEscanerDbContext> options) : base(options)
         { }
-        
+
         public DbSet<Archivo> Archivo { get; set; }
         public DbSet<TipoArchivo> TipoArchivo { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
@@ -22,7 +22,7 @@ namespace libescaner.Core
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("MSQL_LIBESCANER"));
+            optionsBuilder.UseSqlServer("Server=192.168.2.1;Database=libescaner;User Id=terrask;Password=yPHIwa4men");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

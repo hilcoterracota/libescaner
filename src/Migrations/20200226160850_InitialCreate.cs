@@ -11,8 +11,9 @@ namespace libescaner.Migrations
                 name: "C_TIPOARCHIVO",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<string>(maxLength: 50, nullable: false),
                     FechaRegistro = table.Column<DateTime>(nullable: false),
+                    Activo = table.Column<bool>(nullable: false),
                     NombreTipo = table.Column<string>(maxLength: 20, nullable: false),
                     ClaveTipoArchivo = table.Column<string>(maxLength: 20, nullable: false)
                 },
@@ -25,8 +26,9 @@ namespace libescaner.Migrations
                 name: "T_ACREDITADO",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<string>(maxLength: 50, nullable: false),
                     FechaRegistro = table.Column<DateTime>(nullable: false),
+                    Activo = table.Column<bool>(nullable: false),
                     NumeroLoan = table.Column<string>(maxLength: 10, nullable: false),
                     Nombre = table.Column<string>(maxLength: 150, nullable: true)
                 },
@@ -39,8 +41,9 @@ namespace libescaner.Migrations
                 name: "T_CLIENTE",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<string>(maxLength: 50, nullable: false),
                     FechaRegistro = table.Column<DateTime>(nullable: false),
+                    Activo = table.Column<bool>(nullable: false),
                     Nombre = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -52,8 +55,9 @@ namespace libescaner.Migrations
                 name: "T_ARCHIVO",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<string>(maxLength: 50, nullable: false),
                     FechaRegistro = table.Column<DateTime>(nullable: false),
+                    Activo = table.Column<bool>(nullable: false),
                     IdAcreditado = table.Column<string>(nullable: false),
                     Titulo = table.Column<string>(maxLength: 150, nullable: true),
                     Descripcion = table.Column<string>(maxLength: 100, nullable: true),
@@ -83,8 +87,9 @@ namespace libescaner.Migrations
                 name: "BRE_CREDITO",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<string>(maxLength: 50, nullable: false),
                     FechaRegistro = table.Column<DateTime>(nullable: false),
+                    Activo = table.Column<bool>(nullable: false),
                     IdAcreditado = table.Column<string>(nullable: false),
                     IdCliente = table.Column<string>(nullable: false),
                     NumeroCredito = table.Column<string>(maxLength: 10, nullable: false)

@@ -10,7 +10,7 @@ using libescaner.Core;
 namespace libescaner.Migrations
 {
     [DbContext(typeof(LibEscanerDbContext))]
-    [Migration("20200225230115_InitialCreate")]
+    [Migration("20200226160850_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,18 +24,22 @@ namespace libescaner.Migrations
             modelBuilder.Entity("libescaner.Model.Breakers.Credito", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("IdAcreditado")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("IdCliente")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("NumeroCredito")
                         .IsRequired()
@@ -54,7 +58,11 @@ namespace libescaner.Migrations
             modelBuilder.Entity("libescaner.Model.Catalog.TipoArchivo", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ClaveTipoArchivo")
                         .IsRequired()
@@ -77,7 +85,11 @@ namespace libescaner.Migrations
             modelBuilder.Entity("libescaner.Model.Entities.Acreditado", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
@@ -99,7 +111,11 @@ namespace libescaner.Migrations
             modelBuilder.Entity("libescaner.Model.Entities.Archivo", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(100)")
@@ -110,10 +126,10 @@ namespace libescaner.Migrations
 
                     b.Property<string>("IdAcreditado")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("IdTipoArchivo")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -143,7 +159,11 @@ namespace libescaner.Migrations
             modelBuilder.Entity("libescaner.Model.Entities.Cliente", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
