@@ -9,7 +9,6 @@ namespace libescaner.Model.Entities
     public class Archivo : Default
     {
 
-        [MaxLength(10)]
         [Required]
         public string IdAcreditado { get; set; }
 

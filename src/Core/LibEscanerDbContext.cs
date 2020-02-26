@@ -34,10 +34,11 @@ namespace libescaner.Core
                     .OnDelete(DeleteBehavior.ClientSetNull);
 
                 entity.HasOne(d => d.Acreditado)
-                .WithMany(p => p.Archivos)
-                .HasForeignKey(d => d.IdAcreditado)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+                    .WithMany(p => p.Archivos)
+                    .HasForeignKey(d => d.IdAcreditado)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
             });
+
             modelBuilder.Entity<Credito>(entity =>
             {
 
@@ -47,9 +48,9 @@ namespace libescaner.Core
                     .OnDelete(DeleteBehavior.ClientSetNull);
 
                 entity.HasOne(d => d.Acreditado)
-                  .WithMany(p => p.Creditos)
-                  .HasForeignKey(d => d.IdAcreditado)
-                  .OnDelete(DeleteBehavior.ClientSetNull);
+                    .WithMany(p => p.Creditos)
+                    .HasForeignKey(d => d.IdAcreditado)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
             });
         }
     }
