@@ -8,16 +8,17 @@ namespace libescaner.Core
 {
     public class LibEscanerDbContext : DbContext
     {
+        public LibEscanerDbContext()
+        { }
+
+        public LibEscanerDbContext(DbContextOptions<LibEscanerDbContext> options) : base(options)
+        { }
+        
         public DbSet<Archivo> Archivo { get; set; }
         public DbSet<TipoArchivo> TipoArchivo { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Acreditado> Acreditado { get; set; }
         public DbSet<Credito> Credito { get; set; }
-
-        public LibEscanerDbContext()
-        {
-
-        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
