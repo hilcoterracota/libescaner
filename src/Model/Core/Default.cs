@@ -7,10 +7,14 @@ namespace libescaner.Model.Core
     {
         [Key]
         [Required]
+        [MaxLength(50)]
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
-        public DateTime FechaRegistro { get; set; }
+        [Required]
+        public DateTime FechaRegistro { get; set; } = DateTime.Now;
 
+        [Required]
+        public Boolean Activo { get; set; } = true;
 
     }
 }
