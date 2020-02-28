@@ -6,33 +6,6 @@ using libescaner.Model.Entities;
 
 namespace libescaner.Core.Repository
 {
-    public interface ICliente
-    {
-        Task<IEnumerable<Cliente>> GetAll();
-        Task<Cliente> FindById(string value);
-        Task<Cliente> Add(Cliente value);
-        Task<Cliente> Update(Cliente value);
-        Task<bool> Delete(Cliente value);
-    }
-
-    public interface ICredito
-    {
-        Task<IEnumerable<Credito>> GetAll();
-        Task<Credito> FindById(string value);
-        Task<Credito> Add(Credito value);
-        Task<Credito> Update(Credito value);
-        Task<bool> Delete(Credito value);
-    }
-
-      public interface IAcreditado
-    {
-        Task<IEnumerable<Acreditado>> GetAll();
-        Task<Acreditado> FindById(string value);
-        Task<Acreditado> Add(Acreditado value);
-        Task<Acreditado> Update(Acreditado value);
-        Task<bool> Delete(Acreditado value);
-    }
-
     public interface IArchivo
     {
         Task<IEnumerable<Archivo>> GetAll();
@@ -42,14 +15,14 @@ namespace libescaner.Core.Repository
         Task<bool> Delete(Archivo value);
     }
 
-      public interface ITipoArchivo
+
+public interface ICategoria
     {
-        Task<IEnumerable<TipoArchivo>> GetAll();
-        Task<TipoArchivo> FindById(string value);
-        Task<TipoArchivo> Add(TipoArchivo value);
-        Task<TipoArchivo> Update(TipoArchivo value);
-        Task<bool> Delete(TipoArchivo value);
+        Task<IEnumerable<Categoria>> GetAll();
+        Task<Categoria> FindById(string value);
+        Task<Categoria> Add(Categoria value);
+        Task<Categoria> Update(Categoria value);
+        Task<bool> Delete(Categoria value);
+
     }
-
-
 }

@@ -13,47 +13,38 @@ namespace libescaner.Core
 
         public LibEscanerDbContext(DbContextOptions<LibEscanerDbContext> options) : base(options)
         { }
-        
+
         public DbSet<Archivo> Archivo { get; set; }
-        public DbSet<TipoArchivo> TipoArchivo { get; set; }
-        public DbSet<Cliente> Cliente { get; set; }
-        public DbSet<Acreditado> Acreditado { get; set; }
-        public DbSet<Credito> Credito { get; set; }
+
+        public DbSet<ArchivoCategoria> ArchivoCategoria { get; set; }
+
+        public DbSet<Categoria> Categoria { get; set; }
+
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("MSQL_LIBESCANER"));
+            optionsBuilder.UseSqlServer("Server=192.168.2.1;Database=libescaner;User Id=terrask;Password=yPHIwa4men");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Archivo>(entity =>
+            modelBuilder.Entity<ArchivoCategoria>(entity =>
             {
+                entity.HasKey(c => new { c.IdArchivo, c.IdCategoria });
 
-                entity.HasOne(d => d.TipoArchivo)
-                    .WithMany(p => p.Archivos)
-                    .HasForeignKey(d => d.IdTipoArchivo)
+                entity.HasOne(d => d.Archivo)
+                    .WithMany(p => p.ArchivoCategorias)
+                    .HasForeignKey(d => d.IdArchivo)
                     .OnDelete(DeleteBehavior.ClientSetNull);
 
-                entity.HasOne(d => d.Acreditado)
-                    .WithMany(p => p.Archivos)
-                    .HasForeignKey(d => d.IdAcreditado)
+                entity.HasOne(d => d.Categoria)
+                    .WithMany(p => p.ArchivoCategorias)
+                    .HasForeignKey(d => d.IdCategoria)
                     .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
-            modelBuilder.Entity<Credito>(entity =>
-            {
-
-                entity.HasOne(d => d.Cliente)
-                    .WithMany(p => p.Creditos)
-                    .HasForeignKey(d => d.IdCliente)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Acreditado)
-                    .WithMany(p => p.Creditos)
-                    .HasForeignKey(d => d.IdAcreditado)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-            });
         }
     }
 }

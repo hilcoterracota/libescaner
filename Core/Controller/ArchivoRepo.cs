@@ -26,7 +26,7 @@ namespace libescaner.Core.Controller
 
         public async Task<bool> Delete(Archivo value)
         {
-           context.Remove(value);
+            context.Remove(value);
             await context.SaveChangesAsync();
             return true;
         }
@@ -34,20 +34,22 @@ namespace libescaner.Core.Controller
         public async Task<Archivo> FindById(string value)
         {
             return await context.Archivo.Where(x => x.Id == value)
-           .Include(i => i.TipoArchivo)
+           .Include(i => i.ArchivoCategorias)
+            .ThenInclude(i => i.Categoria)
            .FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Archivo>> GetAll()
         {
-             return await context.Archivo
-            .Include(i => i.TipoArchivo)
+            return await context.Archivo
+            .Include(i => i.ArchivoCategorias)
+            .ThenInclude(i => i.Categoria)
             .ToListAsync();
         }
 
         public async Task<Archivo> Update(Archivo value)
         {
-             context.Update(value);
+            context.Update(value);
             context.SaveChanges();
             return await context.Archivo.FirstOrDefaultAsync(i => i.Id == value.Id);
         }
