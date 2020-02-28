@@ -21,9 +21,9 @@ namespace libescaner.Model.Entities
         [MaxLength(50)]
         [Required]
         public string Identificador { get; set; }
-
+        
+        [MaxLength(100)]
         public string PathArchivo { get; set; }
-
 
         [MaxLength(100)]
         [Required]

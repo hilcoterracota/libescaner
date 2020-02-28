@@ -15,8 +15,7 @@ namespace libescaner.Core.Repository
         Task<bool> Delete(Archivo value);
     }
 
-
-public interface ICategoria
+    public interface ICategoria
     {
         Task<IEnumerable<Categoria>> GetAll();
         Task<Categoria> FindById(string value);

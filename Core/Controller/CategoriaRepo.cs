@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 namespace libescaner.Core.Controller
 {
     public class CategoriaRepo : ICategoria
-
     {
         private readonly LibEscanerDbContext context;
         public CategoriaRepo(LibEscanerDbContext _context)

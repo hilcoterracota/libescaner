@@ -7,9 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace libescaner.Core.Controller
 {
-
     public class ArchivoRepo : IArchivo
-
     {
         private readonly LibEscanerDbContext context;
         public ArchivoRepo(LibEscanerDbContext _context)

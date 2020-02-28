@@ -20,12 +20,10 @@ namespace libescaner.Core
 
         public DbSet<Categoria> Categoria { get; set; }
 
-
-
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=192.168.2.1;Database=libescaner;User Id=terrask;Password=yPHIwa4men");
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("MSQL_LIBESCANER"));
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
