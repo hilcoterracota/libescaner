@@ -38,7 +38,10 @@ namespace libescaner.Core.Controller
 
         public async Task<IEnumerable<Categoria>> GetAll()
         {
-            return await context.Categoria.ToListAsync();
+            return await context.Categoria
+            .Include(x => x.ArchivoCategorias)
+            .ThenInclude(x => x.Archivo)
+            .ToListAsync();
         }
 
         public async Task<Categoria> Update(Categoria value)
