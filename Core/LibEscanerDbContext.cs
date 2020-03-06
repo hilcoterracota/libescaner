@@ -23,7 +23,6 @@ namespace libescaner.Core
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("MSQL_LIBESCANER"));
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

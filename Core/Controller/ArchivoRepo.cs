@@ -32,9 +32,9 @@ namespace libescaner.Core.Controller
         public async Task<Archivo> FindById(string value)
         {
             return await context.Archivo.Where(x => x.Id == value)
-           .Include(i => i.ArchivoCategorias)
+            .Include(i => i.ArchivoCategorias)
             .ThenInclude(i => i.Categoria)
-           .FirstOrDefaultAsync();
+            .FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Archivo>> GetAll()
